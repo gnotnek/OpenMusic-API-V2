@@ -11,6 +11,7 @@ class AuthenticationsService {
             text: 'INSERT INTO authentications VALUES($1)',
             values: [token],
         };
+
         await this._pool.query(query);
     }
 
