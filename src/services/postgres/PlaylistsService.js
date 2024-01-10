@@ -77,7 +77,7 @@ class PlaylistsService {
         const result = await this._pool.query(query);
 
         if (!result.rows.length) {
-            throw new InvariantError('Gagal memverifikasi playlist');
+            throw new NotFoundError('Playlist tidak ditemukan');
         }
 
         const playlist = result.rows[0];
