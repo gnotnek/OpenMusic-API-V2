@@ -98,7 +98,8 @@ const init = async () => {
       {
         plugin: album,
         options: {
-          service: albumsService,
+          albumsService: albumsService,
+          songsService: songsService,
           validator: AlbumsValidator,
         },
       },
