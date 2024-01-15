@@ -15,9 +15,9 @@ class CollaborationsService {
         text: 'INSERT INTO collaborations VALUES($1, $2, $3) RETURNING id',
         values: [id, playlistId, userId],
         };
-    
+
         const result = await this._pool.query(query);
-    
+        
         if (!result.rows[0].id) {
         throw new InvariantError('Collaborator gagal ditambahkan');
         }
