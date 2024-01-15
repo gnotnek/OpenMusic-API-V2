@@ -53,6 +53,7 @@ const init = async () => {
   const authenticationsService = new AuthenticationsService();
   const playlistsService = new PlaylistsService(collaborationsService);
   const playlistSongsService = new PlaylistSongsService();
+  const playlistSongActivitiesService = new PlaylistSongActivitiesService();
 
     const server = Hapi.server({
         port: process.env.PORT,
@@ -74,7 +75,7 @@ const init = async () => {
     server.auth.strategy('openmusic_jwt', 'jwt', {
         keys: process.env.ACCESS_TOKEN_KEY,
         verify: {
-     v        aud: false,
+            aud: false,
             iss: false,
             sub: false,
             maxAgeSec: process.env.ACCESS_TOKEN_AGE,
